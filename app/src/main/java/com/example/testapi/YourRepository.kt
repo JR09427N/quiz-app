@@ -3,11 +3,16 @@ package com.example.testapi
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.awaitResponse
+import java.io.File
 import java.io.IOException
+import java.io.InputStream
 
 class YourRepository {
     suspend fun sendIdStringToFastAPI(stringToSend: String): String {
