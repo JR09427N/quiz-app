@@ -1,6 +1,7 @@
 package com.example.testapi
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
@@ -34,6 +35,7 @@ class MainActivity2 : AppCompatActivity() {
     private val repository = YourRepository()
 
     private lateinit var numAnswerstv: TextView
+    private lateinit var closeButton: ImageButton
     private lateinit var nextButton: ImageButton
     private lateinit var prevButton: ImageButton
     private lateinit var favoriteButton: ImageButton
@@ -46,7 +48,7 @@ class MainActivity2 : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
 
     private val userId = 123
-    private val categoryId = 12
+    private var categoryId: Int = -1
 
     private val maxPerCategory = 3
     private var questionList: LinkedList<QuestionRowData> = LinkedList()
@@ -65,6 +67,10 @@ class MainActivity2 : AppCompatActivity() {
         lifecycleScope.launch {
             val count = repository.getRecentAnswerCount(userId, categoryId) ; updateProgressBar(count)
             if(count < maxPerCategory) readQuestionRow()
+        }
+
+        closeButton.setOnClickListener {
+            onBackPressed()
         }
 
         nextButton.isEnabled = false
@@ -123,6 +129,7 @@ class MainActivity2 : AppCompatActivity() {
 
     private fun findViews() {
         numAnswerstv = findViewById(R.id.tv_num_answers)
+        closeButton = findViewById(R.id.ib_close_button)
         nextButton = findViewById(R.id.ib_next_question)
         prevButton = findViewById(R.id.ib_prev_question)
         favoriteButton = findViewById(R.id.ib_favorite)
@@ -131,6 +138,9 @@ class MainActivity2 : AppCompatActivity() {
         progressBar = findViewById(R.id.pb_answers_left)
         questionContainer = findViewById(R.id.cl_question_container)
         answerContainer = findViewById(R.id.fb_answer_container)
+
+        categoryId = intent.getIntExtra("CATEGORY_INDEX", 1)
+        Log.i("categoryId Received", categoryId.toString())
     }
 
     private suspend fun readQuestionRow() {
@@ -234,6 +244,7 @@ class MainActivity2 : AppCompatActivity() {
                 isAllCaps = false
                 textSize = 15f
                 setTextColor(Color.BLACK)
+
                 gravity = Gravity.CENTER // This centers the text both vertically and horizontally
                 typeface = customFont
                 elevation = 0f
