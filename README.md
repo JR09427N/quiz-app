@@ -9,27 +9,30 @@ Here’s one of the more advanced functionalities I built in this repo: **Face C
 
 <p align="center">
   <img src="./assets/Slide 1.jpg" width="500"/>
+</p>
+
+<p align="center">
   <img src="./assets/Slide 2.jpg" width="500"/>
+</p>
+
+<p align="center">
   <img src="./assets/Slide 3.jpg" width="500"/>
+</p>
+
+<p align="center">
   <img src="./assets/Slide 4.jpg" width="500"/>
+</p>
+
+<p align="center">
   <img src="./assets/Slide 5.jpg" width="500"/>
+</p>
+
+<p align="center">
   <img src="./assets/Slide 6.jpg" width="500"/>
+</p>
+
+<p align="center">
   <img src="./assets/Slide 7.jpg" width="500"/>
-</p>
-
-<p align="center">
-  <img src="./assets/3_terminal_false.png" width="400"/>
-  <img src="./assets/4_android_false.png" width="300"/>
-</p>
-
-<p align="center">
-  <img src="./assets/5_kevin_hart_2.jpg" width="200"/>
-  <img src="./assets/6_kevin_hart_3.jpg" width="200"/>
-</p>
-
-<p align="center">
-  <img src="./assets/7_terminal_true.png" width="400"/>
-  <img src="./assets/8_android_true.png" width="300"/>
 </p>
 
 ---
@@ -37,7 +40,7 @@ Here’s one of the more advanced functionalities I built in this repo: **Face C
 ## 🔌 How It Works (Technical Breakdown)
 
 <p align="center">
-  <img src="./assets/9_breakdown.png" width="600"/>
+  <img src="./assets/Slide 8.jpg" width="500"/>
 </p>
 
 - Android captures 2 images
