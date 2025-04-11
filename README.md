@@ -8,8 +8,13 @@ Here’s one of the more advanced functionalities I built in this repo: **Face C
 ## 🚀 Face Verification in Action
 
 <p align="center">
-  <img src="./assets/Slide 1.jpg" width="200"/>
-  <img src="./assets/2_the_rock.jpg" width="200"/>
+  <img src="./assets/Slide 1.jpg" width="500"/>
+  <img src="./assets/Slide 2.jpg" width="500"/>
+  <img src="./assets/Slide 3.jpg" width="500"/>
+  <img src="./assets/Slide 4.jpg" width="500"/>
+  <img src="./assets/Slide 5.jpg" width="500"/>
+  <img src="./assets/Slide 6.jpg" width="500"/>
+  <img src="./assets/Slide 7.jpg" width="500"/>
 </p>
 
 <p align="center">
