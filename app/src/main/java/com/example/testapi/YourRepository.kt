@@ -53,6 +53,22 @@ class YourRepository {
         }
     }
 
+    suspend fun deleteAnswer(answer: AnswerSubmission): String {
+        return withContext(Dispatchers.IO) {
+            val response = try {
+                RetrofitClient.apiService.deleteAnswer(answer).awaitResponse()
+            } catch (e: Exception) {
+                return@withContext "Error: ${e.message}" // Handle network errors
+            }
+
+            if (response.isSuccessful) {
+                response.body()?.string() ?: "No response body"
+            } else {
+                "Error: ${response.code()} - ${response.errorBody()?.string()}"
+            }
+        }
+    }
+
     suspend fun getRecentAnswerCount(userId: Int, categoryId: Int): Int {
         val response = RetrofitClient.apiService.getAnswerCount(
             userId = userId,
@@ -121,4 +137,25 @@ class YourRepository {
             throw IOException("Error: ${response.errorBody()?.string()}")
         }
     }
+
+
+    suspend fun submitQuestion(question: QuestionSubmission): String {
+        return withContext(Dispatchers.IO) {
+            val response = try {
+                RetrofitClient.apiService.submitQuestion(question).awaitResponse()
+            } catch (e: Exception) {
+                return@withContext "Error: ${e.message}" // Handle network errors
+            }
+
+            if (response.isSuccessful) {
+                response.body()?.string() ?: "No response body"
+            } else {
+                "Error: ${response.code()} - ${response.errorBody()?.string()}"
+            }
+        }
+    }
+
+
+
+
 }

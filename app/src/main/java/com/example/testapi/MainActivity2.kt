@@ -76,11 +76,11 @@ class MainActivity2 : AppCompatActivity() {
         nextButton.isEnabled = false
         nextButton.setOnClickListener {
             if(questionList.size == maxPerCategory && currentQuestionIndex == questionList.size - 1) {
-                lifecycleScope.launch { a?.let { it -> repository.submitAnswer(it) ; readQuestionRow() }} // submit answer
+                lifecycleScope.launch { a?.let { repository.submitAnswer(it) ; readQuestionRow() }} // submit answer
             }
 
             else if(currentQuestionIndex < questionList.size - 1) {
-                lifecycleScope.launch { a?.let { it -> repository.submitAnswer(it) }} // submit answer
+                lifecycleScope.launch { a?.let { repository.submitAnswer(it) }} // submit answer
                 currentQuestionIndex++ // Move forward in existing list
                 Log.i("currentQuestionIndex", "curr index: $currentQuestionIndex size: ${questionList.size -1}")
                 fillLocalQuestion(questionList[currentQuestionIndex])
@@ -88,7 +88,7 @@ class MainActivity2 : AppCompatActivity() {
 
             else {
                 lifecycleScope.launch {
-                    a?.let { it -> repository.submitAnswer(it) } // submit answer
+                    a?.let { repository.submitAnswer(it) } // submit answer
                     readQuestionRow() // load next question
                 }
             }
@@ -282,7 +282,8 @@ class MainActivity2 : AppCompatActivity() {
                     if(selectedButtons.isNotEmpty()) nextButton.isEnabled = true else nextButton.isEnabled = false
 
                     // Log the selected answers
-                    val selectedAnswers = selectedButtons.map { it.text.toString() }
+                    val sortedButtons = selectedButtons.toList().sortedBy { it.text.toString() }
+                    val selectedAnswers = sortedButtons.map { it.text.toString() }
 
                     a = AnswerSubmission(
                         user_id = userId,

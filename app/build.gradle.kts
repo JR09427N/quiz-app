@@ -61,6 +61,8 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -84,6 +86,4 @@ dependencies {
 
     implementation("io.coil-kt:coil:2.4.0") // Or latest version
     implementation("io.coil-kt:coil-svg:2.4.0")
-
-
 }

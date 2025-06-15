@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.LinearLayout.HORIZONTAL
@@ -27,6 +28,7 @@ class Sections : ComponentActivity() {
 
     private lateinit var contentContainer: LinearLayout
     private lateinit var ivCat: ImageView
+    private lateinit var ibBackButton: ImageButton
     private lateinit var intent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +37,13 @@ class Sections : ComponentActivity() {
         findViews()
 
         lifecycleScope.launch { fetchSections() }
+
+        ibBackButton.setOnClickListener { finish() }
     }
 
     private fun findViews() {
         contentContainer = findViewById(R.id.ll_content_container)
+        ibBackButton = findViewById(R.id.ib_back_button)
     }
 
     private suspend fun fetchSections() {

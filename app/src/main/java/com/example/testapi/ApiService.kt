@@ -34,6 +34,9 @@ interface ApiService {
     @POST("submit_answer/")
     fun submitAnswer(@Body answer: AnswerSubmission): Call<ResponseBody>
 
+    @POST("delete_answer/")
+    fun deleteAnswer(@Body answer: AnswerSubmission): Call<ResponseBody>
+
     @GET("answer_count")
     suspend fun getAnswerCount(
         @Query("user_id") userId: Int,
@@ -51,4 +54,10 @@ interface ApiService {
 
     @GET("/read_sections/")
     suspend fun readSections(): Response<List<SectionData>>
+
+    @POST("submit_question/")
+    fun submitQuestion(@Body question: QuestionSubmission): Call<ResponseBody>
+
+    @GET("get_question/")
+    suspend fun getUserQuestion(): Response<List<UserQuestionData>>
 }
